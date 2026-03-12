@@ -9,8 +9,8 @@
 
 ---
 
-### 📁 Tài liệu học tập
-
+### 📁 Tài liệu học tập 
+🔗 [Drive - Google Drive](https://drive.google.com/drive/folders/1n2dMtbFGiRTGTmQnEmJtIa4rVHPUwuBj)
 🔗 [Labs - Google Drive](https://drive.google.com/drive/folders/1odPJE_VkJqeEQnsXfavGt_wkpdBtt_RK)  
 🔗 [Samples - Google Drive](https://drive.google.com/drive/folders/1XGemOXwUuZC8Na2LCd1zLkYYZDp3TaNS)
 
@@ -18,6 +18,6 @@
 
 ### 📝 Link nộp bài
 
-🔗 [Bảng theo dõi nộp bài (Google Sheets)](https://docs.google.com/spreadsheets/d/14meOmJOsQaq_FwZbw-wyLjqvjK30TqFQ/edit?gid=124621409#gid=124621409)
+🔗 [Bảng theo dõi nộp bài (Google Sheets)](https://drive.google.com/drive/folders/1VfcHb5rUiDGjQ1HLb1DR_CShTdo67CEZ)
 
 ---
