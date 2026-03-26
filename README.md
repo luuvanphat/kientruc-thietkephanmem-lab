@@ -22,3 +22,5 @@
 🔗 [Bảng theo dõi nộp bài (Google Sheets)](https://drive.google.com/drive/folders/1VfcHb5rUiDGjQ1HLb1DR_CShTdo67CEZ)
 
 ---
+
+xóa account git: printf "protocol=https\nhost=github.com\n" | git credential reject
