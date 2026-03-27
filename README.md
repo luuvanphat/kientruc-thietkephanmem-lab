@@ -1,4 +1,4 @@
-# Môn học: Kiến trúc và Thiết kế phần mềmm 
+# Môn học: Kiến trúc và Thiết kế phần mềm
 
 
 ---
