@@ -1,0 +1,93 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: fds-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  user-service:
+    build: ./userService
+    container_name: fds-user
+    environment:
+      - PORT=8081
+      - DB_PATH=/data/users.json
+    volumes:
+      - userdb:/data
+    ports:
+      - "8081:8081"
+
+  food-service:
+    build: ./foodService
+    container_name: fds-food
+    environment:
+      - PORT=8082
+    ports:
+      - "8082:8082"
+
+  order-service:
+    build: ./orderService
+    container_name: fds-order
+    environment:
+      - PORT=8083
+      - DB_PATH=/data/orders.json
+      - AMQP_URL=amqp://rabbitmq:5672
+    volumes:
+      - orderdb:/data
+    ports:
+      - "8083:8083"
+    depends_on:
+      - rabbitmq
+
+  payment-service:
+    build: ./paymentService
+    container_name: fds-payment
+    environment:
+      - PORT=8084
+      - AMQP_URL=amqp://rabbitmq:5672
+    ports:
+      - "8084:8084"
+    depends_on:
+      - rabbitmq
+
+  notification-service:
+    build: ./notificationService
+    container_name: fds-notification
+    environment:
+      - PORT=8085
+      - AMQP_URL=amqp://rabbitmq:5672
+    ports:
+      - "8085:8085"
+    depends_on:
+      - rabbitmq
+
+  api-gateway:
+    build: ./apiGateway
+    container_name: fds-gateway
+    environment:
+      - PORT=8080
+      - USER_BASE=http://user-service:8081
+      - FOOD_BASE=http://food-service:8082
+      - ORDER_BASE=http://order-service:8083
+    ports:
+      - "8080:8080"
+    depends_on:
+      - user-service
+      - food-service
+      - order-service
+
+  frontend:
+    build: ./frontend
+    container_name: fds-frontend
+    environment:
+      - PORT=3000
+      - VITE_GATEWAY_BASE=http://localhost:8080
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api-gateway
+
+volumes:
+  userdb:
+  orderdb:
+

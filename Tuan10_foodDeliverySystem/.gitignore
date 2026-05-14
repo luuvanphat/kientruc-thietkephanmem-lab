@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+.DS_Store
+
+# runtime DB files (per service)
+users.json
+orders.json
+
